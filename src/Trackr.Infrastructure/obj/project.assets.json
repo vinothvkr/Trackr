@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vinothr\\source\\repos\\Trackr\\Trackr.Infrastructure\\Trackr.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\vinothr\\source\\repos\\Trackr\\src\\Trackr.Infrastructure\\Trackr.Infrastructure.csproj",
       "projectName": "Trackr.Infrastructure",
-      "projectPath": "C:\\Users\\vinothr\\source\\repos\\Trackr\\Trackr.Infrastructure\\Trackr.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\vinothr\\source\\repos\\Trackr\\src\\Trackr.Infrastructure\\Trackr.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\vinothr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vinothr\\source\\repos\\Trackr\\Trackr.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\vinothr\\source\\repos\\Trackr\\src\\Trackr.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

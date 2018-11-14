@@ -8,8 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { ProjectsComponent } from './projects/projects.component';
-import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectsComponent } from './project/project.component';
+import { ProjectDetailComponent } from './project/project-detail.component';
 
 @NgModule({
   declarations: [

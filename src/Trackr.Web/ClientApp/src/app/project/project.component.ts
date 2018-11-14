@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Project } from '../project';
+import { Project } from '../core/models/project.model';
 
-import { ProjectService } from '../project.service'
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.css']
 })
 export class ProjectsComponent implements OnInit {
 

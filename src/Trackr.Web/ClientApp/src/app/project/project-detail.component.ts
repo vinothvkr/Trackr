@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
 
-import { Project } from '../project';
+import { Project } from '../core/models/project.model';
 import { ProjectService } from '../project.service';
 
 @Component({

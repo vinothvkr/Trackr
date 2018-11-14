@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trackr.Web", "Trackr.Web\Trackr.Web.csproj", "{3ABDA3B8-1196-4DCD-9A82-6B43203B4DBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trackr.Web", "src\Trackr.Web\Trackr.Web.csproj", "{3ABDA3B8-1196-4DCD-9A82-6B43203B4DBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackr.Infrastructure", "Trackr.Infrastructure\Trackr.Infrastructure.csproj", "{0FA1C464-D2C1-42B7-A410-DE42233C7106}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackr.Infrastructure", "src\Trackr.Infrastructure\Trackr.Infrastructure.csproj", "{0FA1C464-D2C1-42B7-A410-DE42233C7106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

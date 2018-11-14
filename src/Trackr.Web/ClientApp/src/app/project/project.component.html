@@ -8,7 +8,14 @@
             {{project.name}}
           </mat-panel-title>
         </mat-expansion-panel-header>
-
+        <mat-grid-list cols="4" rowHeight="20px">
+          <mat-grid-tile>
+            <label>Issues: </label><span>0</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label>Issues: </label><span>0</span>
+          </mat-grid-tile>
+        </mat-grid-list>
         <mat-action-row>
           <a mat-raised-button color="primary" routerLink="/projects/{{project.id}}">Open</a>
         </mat-action-row>
