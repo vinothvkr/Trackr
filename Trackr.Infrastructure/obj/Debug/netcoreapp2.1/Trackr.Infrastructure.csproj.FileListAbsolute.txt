@@ -1,0 +1,11 @@
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\bin\Debug\netcoreapp2.1\Trackr.Infrastructure.deps.json
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\bin\Debug\netcoreapp2.1\Trackr.Infrastructure.runtimeconfig.json
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\bin\Debug\netcoreapp2.1\Trackr.Infrastructure.runtimeconfig.dev.json
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\bin\Debug\netcoreapp2.1\Trackr.Infrastructure.dll
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\bin\Debug\netcoreapp2.1\Trackr.Infrastructure.pdb
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\obj\Debug\netcoreapp2.1\Trackr.Infrastructure.csprojAssemblyReference.cache
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\obj\Debug\netcoreapp2.1\Trackr.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\obj\Debug\netcoreapp2.1\Trackr.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\obj\Debug\netcoreapp2.1\Trackr.Infrastructure.AssemblyInfo.cs
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\obj\Debug\netcoreapp2.1\Trackr.Infrastructure.dll
+C:\Users\vinothr\source\repos\Trackr\Trackr.Infrastructure\obj\Debug\netcoreapp2.1\Trackr.Infrastructure.pdb
