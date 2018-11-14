@@ -1,0 +1,17 @@
+<mat-card *ngIf="project">
+  <mat-card-title>{{project.name}} - Project</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        Description
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        No issues...
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="goBack()">Back</button>
+  </mat-card-actions>
+</mat-card>

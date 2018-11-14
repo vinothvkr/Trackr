@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>My Projects</mat-card-title>
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let project of projects">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{project.name}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-action-row>
+          <a mat-raised-button color="primary" routerLink="/projects/{{project.id}}">Open</a>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>
