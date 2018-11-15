@@ -18,6 +18,7 @@ namespace Trackr.Infrastructure
         public void ServiceConfigurations(IServiceCollection services)
         {
             DbContextConfiguration.ConfigurationService(services, Configuration);
+            IdentityConfiguration.ConfigurationService(services, Configuration);
         }
     }
 }
