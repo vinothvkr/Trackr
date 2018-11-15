@@ -9,5 +9,6 @@ namespace Trackr.Infrastructure.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }

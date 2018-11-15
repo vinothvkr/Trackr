@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trackr.Infrastructure.Data;
 
 namespace Trackr.Infrastructure.Migrations
 {
     [DbContext(typeof(TrackrDbContext))]
-    partial class TrackrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181115151127_CreateProjectSchema")]
+    partial class CreateProjectSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

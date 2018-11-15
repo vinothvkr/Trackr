@@ -10,5 +10,9 @@ namespace Trackr.Infrastructure.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public DateTime CreatedOnUTC { get; set; }
+        public string CreatedBy { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
     }
 }
