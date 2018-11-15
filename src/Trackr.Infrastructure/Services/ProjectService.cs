@@ -8,7 +8,7 @@ namespace Trackr.Infrastructure.Services
 {
     public class ProjectService : Service<Project>, IProjectService
     {
-        public ProjectService(ApplicationDbContext dbContext) : base(dbContext)
+        public ProjectService(TrackrDbContext dbContext) : base(dbContext)
         {
         }
     }

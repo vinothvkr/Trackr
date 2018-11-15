@@ -6,9 +6,9 @@ using Trackr.Infrastructure.Models;
 
 namespace Trackr.Infrastructure.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class TrackrDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public TrackrDbContext(DbContextOptions<TrackrDbContext> options)
             :base(options)
         {
         }

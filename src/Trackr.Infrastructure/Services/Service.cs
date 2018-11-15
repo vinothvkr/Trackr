@@ -9,9 +9,9 @@ namespace Trackr.Infrastructure.Services
 {
     public class Service<TEntity> : IService<TEntity> where TEntity : class
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly TrackrDbContext _dbContext;
 
-        public Service(ApplicationDbContext dbContext)
+        public Service(TrackrDbContext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -24,7 +24,7 @@ namespace Trackr.Web
         {
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<ApplicationDbContext>(o =>
+            services.AddDbContext<TrackrDbContext>(o =>
             o.UseSqlServer(connectionString));
 
             services.AddTransient<IProjectService, ProjectService>();
