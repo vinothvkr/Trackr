@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Trackr.Infrastructure;
 using Trackr.Infrastructure.Data;
 using Trackr.Infrastructure.Services;
 
@@ -15,17 +16,16 @@ namespace Trackr.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            TrackrServiceFactory = new TrackrServiceFactory(Configuration);
         }
 
         public IConfiguration Configuration { get; }
+        public TrackrServiceFactory TrackrServiceFactory { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            services.AddDbContext<TrackrDbContext>(o =>
-            o.UseSqlServer(connectionString));
+            TrackrServiceFactory.ServiceConfigurations(services);
 
             services.AddTransient<IProjectService, ProjectService>();
 

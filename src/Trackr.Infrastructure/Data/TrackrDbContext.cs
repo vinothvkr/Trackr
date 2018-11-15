@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using Trackr.Infrastructure.Models;
 
 namespace Trackr.Infrastructure.Data
 {
-    public class TrackrDbContext : DbContext
+    public class TrackrDbContext : IdentityDbContext
     {
         public TrackrDbContext(DbContextOptions<TrackrDbContext> options)
             :base(options)

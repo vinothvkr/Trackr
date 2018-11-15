@@ -1,0 +1,23 @@
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Trackr.Infrastructure.Configurations;
+
+namespace Trackr.Infrastructure
+{
+    public class TrackrServiceFactory
+    {
+        public IConfiguration Configuration { get; set; }
+        public TrackrServiceFactory(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public void ServiceConfigurations(IServiceCollection services)
+        {
+            DbContextConfiguration.ConfigurationService(services, Configuration);
+        }
+    }
+}
