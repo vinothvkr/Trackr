@@ -7,7 +7,7 @@ using Trackr.Infrastructure.Models;
 
 namespace Trackr.Infrastructure.Data
 {
-    public class TrackrDbContext : IdentityDbContext
+    public class TrackrDbContext : IdentityDbContext<ApplicationUser>
     {
         public TrackrDbContext(DbContextOptions<TrackrDbContext> options)
             :base(options)
