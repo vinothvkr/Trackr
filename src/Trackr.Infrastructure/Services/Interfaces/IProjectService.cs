@@ -7,5 +7,6 @@ namespace Trackr.Infrastructure.Services
 {
     public interface IProjectService : IService<Project>
     {
+        Project Get(int id);
     }
 }
