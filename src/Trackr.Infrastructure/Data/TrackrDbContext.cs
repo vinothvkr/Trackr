@@ -16,12 +16,14 @@ namespace Trackr.Infrastructure.Data
         }
 
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Issue> Issues { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new ProjectConfiguration());
+            builder.ApplyConfiguration(new IssueConfiguration());
         }
     }
 }
