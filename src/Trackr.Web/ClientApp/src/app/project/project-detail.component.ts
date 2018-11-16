@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Project } from '../core/models/project.model';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../core/services/project.service';
 
 @Component({
   selector: 'app-project-detail',
