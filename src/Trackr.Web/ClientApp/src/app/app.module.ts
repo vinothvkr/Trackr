@@ -10,12 +10,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ProjectsComponent } from './project/project.component';
 import { ProjectDetailComponent } from './project/project-detail.component';
+import { IssueComponent } from './issue/issue.component';
+import { IssueDetailComponent } from './issue/issue-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    IssueComponent,
+    IssueDetailComponent
   ],
   imports: [
     BrowserModule,
