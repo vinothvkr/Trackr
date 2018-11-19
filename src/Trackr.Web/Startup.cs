@@ -28,6 +28,7 @@ namespace Trackr.Web
             TrackrServiceFactory.ServiceConfigurations(services);
 
             services.AddTransient<IProjectService, ProjectService>();
+            services.AddTransient<IIssueService, IssueService>();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
