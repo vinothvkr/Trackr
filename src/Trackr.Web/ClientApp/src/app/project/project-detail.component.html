@@ -11,14 +11,4 @@
     <button mat-raised-button (click)="goBack()">Back</button>
   </mat-card-actions>
 </mat-card>
-
-<mat-card>
-  <mat-card-title>Issues</mat-card-title>
-  <mat-card-content>
-    <mat-nav-list>
-      <a mat-list-item *ngFor="let issue of project.issues" routerLink="/projects/{{project.id}}/issues/{{issue.id}}">
-        {{issue.title}}
-      </a>
-    </mat-nav-list>
-  </mat-card-content>
-</mat-card>
+<app-issue *ngIf="project" [projectId]="project.id"></app-issue>
