@@ -21,16 +21,16 @@ namespace Trackr.Web.Controllers
         }
         // GET: api/Issues
         [HttpGet]
-        public IEnumerable<Issue> Get(int projectId)
+        public JsonResult Get(int projectId)
         {
-            return _issueService.GetAll(projectId);
+            return Json(_issueService.GetAll(projectId));
         }
 
         // GET: api/Issues/5
         [HttpGet("{id}", Name = "GetIssue")]
-        public string Get(int projectId, int id)
+        public JsonResult Get(int projectId, int id)
         {
-            return "value";
+            return Json(_issueService.Get(id));
         }
 
         // POST: api/Issues
