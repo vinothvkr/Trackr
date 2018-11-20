@@ -19,6 +19,7 @@ namespace Trackr.Infrastructure
         {
             DbContextConfiguration.ConfigurationService(services, Configuration);
             IdentityConfiguration.ConfigurationService(services, Configuration);
+            AuthenticationConfiguration.ConfigurationService(services, Configuration);
         }
     }
 }
