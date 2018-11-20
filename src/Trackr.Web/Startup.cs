@@ -30,6 +30,7 @@ namespace Trackr.Web
 
             services.AddTransient<IProjectService, ProjectService>();
             services.AddTransient<IIssueService, IssueService>();
+            services.AddTransient<IIdentityService, IdentityService>();
 
             services.AddMvc(o =>
             {
