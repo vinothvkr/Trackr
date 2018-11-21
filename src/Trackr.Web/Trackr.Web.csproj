@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\core\models\issue.model.ts" />
+    <None Remove="ClientApp\src\app\core\models\user.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,11 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\core\models\issue.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\core\models\user.model.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\core\helpers\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
