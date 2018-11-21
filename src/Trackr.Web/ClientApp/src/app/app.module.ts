@@ -12,6 +12,7 @@ import { ProjectsComponent } from './project/project.component';
 import { ProjectDetailComponent } from './project/project-detail.component';
 import { IssueComponent } from './issue/issue.component';
 import { IssueDetailComponent } from './issue/issue-detail.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { IssueDetailComponent } from './issue/issue-detail.component';
     ProjectsComponent,
     ProjectDetailComponent,
     IssueComponent,
-    IssueDetailComponent
+    IssueDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
