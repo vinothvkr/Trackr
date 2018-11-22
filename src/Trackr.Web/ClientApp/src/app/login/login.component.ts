@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from '../core/models/user.model';
+import { User } from '../core/models/user.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../core/services/auth.service';
+import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +11,42 @@ import { user } from '../core/models/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user = user;
-  constructor() { }
+  loginForm: FormGroup;
+  returnUrl = '/';
+  isSubmitted = false;
+  isLoading = false;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.authService.logout();
+    this.loginForm = new FormGroup({
+      'email': new FormControl('', Validators.required),
+      'password': new FormControl('', Validators.required),
+    });
+  }
+
+  get f() { return this.loginForm.controls; }
+
+  onSubmit() {
+    this.isSubmitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.isLoading = true;
+    this.authService.login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        
+      )
   }
 
 }
