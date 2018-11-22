@@ -7,5 +7,7 @@ namespace Trackr.Infrastructure.Dtos.Identity
     public class LoginResultDto
     {
         public string Token { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
