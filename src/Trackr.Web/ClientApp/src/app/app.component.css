@@ -13,3 +13,6 @@ h1 {
   left: 0;
   right: 0;
 }
+.sidenav-container .sidenav {
+  min-width:200px;
+}
