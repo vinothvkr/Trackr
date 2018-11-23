@@ -8,16 +8,23 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private userSubject: BehaviorSubject<User>;
+  public user: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('identity')));
-    this.currentUser = this.currentUserSubject.asObservable();
+    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('identity')));
+    this.user = this.userSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+  public get userValue(): User {
+    return this.userSubject.value;
+  }
+
+  public get isAuthenticated(): boolean {
+    if (this.userSubject.value) {
+      return true;
+    }
+    return false;
   }
 
   login(email: string, password: string) {
@@ -26,7 +33,7 @@ export class AuthService {
       .pipe(map(user => {
         if (user && user.token) {
           localStorage.setItem('identity', JSON.stringify(user));
-          this.currentUserSubject.next(user);
+          this.userSubject.next(user);
         }
         return user;
       }));
@@ -34,6 +41,6 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('identity');
-    this.currentUserSubject.next(null);
+    this.userSubject.next(null);
   }
 }
