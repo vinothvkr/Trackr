@@ -4,12 +4,12 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="full-width">
         <input matInput formControlName="email" placeholder="Email">
-        <mat-error *ngIf="isSubmitted && f.email.invalid">Email is required.</mat-error>
+        <mat-error *ngIf="f.email.invalid">Email is required.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput formControlName="password" type="password" placeholder="Password">
-        <mat-error *ngIf="isSubmitted && f.password.invalid">Email is required.</mat-error>
+        <mat-error *ngIf="f.password.invalid">Email is required.</mat-error>
       </mat-form-field>
       <button mat-raised-button>Login</button>
       <mat-spinner *ngIf="isLoading"></mat-spinner>
