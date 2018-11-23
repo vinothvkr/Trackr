@@ -6,12 +6,14 @@ import { ProjectDetailComponent } from './project/project-detail.component';
 import { IssueDetailComponent } from './issue/issue-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: HomeComponent},
   { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard] },
   { path: 'projects/:id', component: ProjectDetailComponent, canActivate: [AuthGuard] },
-  { path: 'projects/:projectId/issues/:id', component: IssueDetailComponent, canActivate: [AuthGuard] }
+  { path: 'projects/:projectId/issues/:id', component: IssueDetailComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
