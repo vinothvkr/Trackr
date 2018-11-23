@@ -1,33 +1,27 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    <mat-list>
-      <mat-list-item>
-        <a mat-button routerLink="/" (click)="sidenav.toggle()">
-          <mat-icon matListIcon>home</mat-icon>
-          <span> Home </span>
-        </a>
-      </mat-list-item>
-      <mat-list-item>
-        <a mat-button routerLink="projects" (click)="sidenav.toggle()">
-          <mat-icon matListIcon>folder</mat-icon>
-          <span> My Projects </span>
-        </a>
-      </mat-list-item>
-    </mat-list>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav">
+    <mat-nav-list *ngIf="authService.isAuthenticated">
+      <a mat-list-item routerLink="/" (click)="sidenav.toggle()">
+        <span> Home </span>
+      </a>
+      <a mat-list-item routerLink="projects" (click)="sidenav.toggle()">
+        <span> My Projects </span>
+      </a>
+      <a mat-list-item (click)="logout(); sidenav.toggle()">
+        <span> Logout </span>
+      </a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <span class="fill-remaining-space">
-        <button mat-icon-button (click)="sidenav.toggle()">
+        <button mat-icon-button (click)="sidenav.toggle()" *ngIf="authService.isAuthenticated">
           <mat-icon>menu</mat-icon>
         </button>
       </span>
-
       <span class="fill-remaining-space">Trackr</span>
     </mat-toolbar>
-
     <router-outlet></router-outlet>
-
     <span class="done">
       <button mat-fab>
         <mat-icon>check circle</mat-icon>
