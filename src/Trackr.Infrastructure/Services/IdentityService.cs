@@ -9,6 +9,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using Trackr.Infrastructure.Data;
+using Trackr.Infrastructure.Dtos;
 using Trackr.Infrastructure.Dtos.Identity;
 using Trackr.Infrastructure.Models;
 
@@ -34,10 +35,20 @@ namespace Trackr.Infrastructure.Services
             LoginResultDto result = new LoginResultDto();
             if (identity == null)
             {
+                result.Success = false;
+                result.Error = new ErrorResultDto
+                {
+                    Error = true,
+                    Message = "Email or Password is invalid."
+                };
                 return result;
             }
             var token = GenerateToken(dto.Email, identity);
-            result.Token = new JwtSecurityTokenHandler().WriteToken(token);
+            result.Success = true;
+            result.User = new UserDto
+            {
+                Token = new JwtSecurityTokenHandler().WriteToken(token)
+            };
             return result;
         }
 

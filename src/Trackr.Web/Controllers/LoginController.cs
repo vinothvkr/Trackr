@@ -23,9 +23,15 @@ namespace Trackr.Web.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<JsonResult> Post([FromBody]LoginDto dto)
+        public async Task<IActionResult> Post([FromBody]LoginDto dto)
         {
-            return Json(await _identityService.Login(dto));
+            var result = await _identityService.Login(dto);
+            if (result.Success)
+            {
+                return Json(result.User);
+            }
+            result.Error.Status = 400;
+            return BadRequest(result.Error);
         }
     }
 }
