@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material'
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -42,11 +44,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        
-      )
+      data => {
+        this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        this.loginForm.controls.password.setValue('');
+        this.isLoading = false;
+        this.snackBar.open(error, 'Retry', { duration: 10000 });
+      });
   }
 
 }

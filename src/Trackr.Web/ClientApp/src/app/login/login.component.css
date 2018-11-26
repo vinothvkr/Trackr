@@ -4,3 +4,15 @@
 .full-width {
   width: 100%;
 }
+mat-spinner {
+  float: left;
+  margin: 5px 10px 0 0;
+}
+.mat-progress-button {
+  padding: 0;
+}
+.mat-progress-button mat-progress-bar {
+  position: absolute;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
