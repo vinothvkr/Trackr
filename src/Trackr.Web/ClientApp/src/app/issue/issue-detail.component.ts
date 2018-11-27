@@ -29,8 +29,4 @@ export class IssueDetailComponent implements OnInit {
     this.issueService.getIssue(projectId, id)
       .subscribe(issue => this.issue = issue);
   }
-
-  goBack(): void {
-    this.location.back();
-  }
 }
