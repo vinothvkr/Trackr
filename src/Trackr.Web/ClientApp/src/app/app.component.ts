@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { User } from './core/models/user.model';
 import { Location } from '@angular/common';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('sidenav') sidenav: MatSidenav;
   currentUrl;
   constructor(
     private authService: AuthService,
@@ -23,11 +25,16 @@ export class AppComponent {
     });
   }
 
+  closeSideNav() {
+    this.sidenav.close();
+  }
+
   goBack() {
     this.location.back();
   }
 
   logout() {
+    this.closeSideNav();
     this.authService.logout();
     this.router.navigate(['/']);
   }
