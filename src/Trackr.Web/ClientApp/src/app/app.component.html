@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container" *ngIf="authService.isAuthenticated">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav" position="end">
+  <mat-sidenav #sidenav mode="side" class="sidenav" position="end">
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="sidenav.toggle()">
         <span> Home </span>
@@ -7,7 +7,7 @@
       <a mat-list-item routerLink="projects" (click)="sidenav.toggle()">
         <span> My Projects </span>
       </a>
-      <a mat-list-item (click)="logout(); sidenav.toggle()">
+      <a mat-list-item (click)="sidenav.toggle(); logout()">
         <span> Logout </span>
       </a>
     </mat-nav-list>
