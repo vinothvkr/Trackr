@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trackr.Infrastructure.Data;
 
 namespace Trackr.Infrastructure.Migrations
 {
     [DbContext(typeof(TrackrDbContext))]
-    partial class TrackrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181128112721_IssueModelChangeBodyToDescription")]
+    partial class IssueModelChangeBodyToDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,23 +209,6 @@ namespace Trackr.Infrastructure.Migrations
                     b.HasIndex("ProjectId");
 
                     b.ToTable("Issues");
-                });
-
-            modelBuilder.Entity("Trackr.Infrastructure.Models.IssueType", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("IssueTypes");
-
-                    b.HasData(
-                        new { Id = "2aa88db3-ff9d-4296-a163-cd4906b30b14", Name = "Bug" },
-                        new { Id = "e4f035bc-8b43-4bf5-b420-4ce63faf093a", Name = "Feature" }
-                    );
                 });
 
             modelBuilder.Entity("Trackr.Infrastructure.Models.Project", b =>
