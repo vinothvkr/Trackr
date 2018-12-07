@@ -18,6 +18,10 @@ namespace Trackr.Infrastructure.EntityConfigurations
             builder.HasOne(x => x.User)
                 .WithMany(x => x.Issues)
                 .HasForeignKey(x => x.CreatedBy);
+
+            builder.HasOne(x => x.IssueType)
+                .WithMany(x => x.Issues)
+                .HasForeignKey(x => x.IssueTypeId);
         }
     }
 }

@@ -77,7 +77,6 @@ namespace Trackr.Infrastructure.Services
 
         private JwtSecurityToken GenerateToken(ClaimsIdentity identity)
         {
-            string nm = identity.FindFirst(ClaimTypes.NameIdentifier).Value;
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, identity.FindFirst(ClaimTypes.NameIdentifier).Value),

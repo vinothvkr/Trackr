@@ -12,8 +12,8 @@ namespace Trackr.Infrastructure.EntityConfigurations
         public void Configure(EntityTypeBuilder<IssueType> builder)
         {
             builder.HasData(
-                new IssueType { Id = Guid.NewGuid().ToString(), Name = "Bug" },
-                new IssueType { Id = Guid.NewGuid().ToString(), Name = "Feature" });
+                new IssueType { Id = "c2028ff9-9143-4a64-9ac8-763f61357305", Name = "Bug" },
+                new IssueType { Id = "e085a41b-0205-44d4-b86f-6ac09ef8b960", Name = "Feature" });
         }
     }
 }
