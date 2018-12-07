@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -31,6 +32,9 @@ namespace Trackr.Web
             services.AddTransient<IProjectService, ProjectService>();
             services.AddTransient<IIssueService, IssueService>();
             services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<IIssueTypeService, IssueTypeService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddMvc(o =>
             {
