@@ -43,7 +43,7 @@ namespace Trackr.Infrastructure.Services
                 };
                 return result;
             }
-            var token = GenerateToken(dto.Email, identity);
+            var token = GenerateToken(identity);
             result.Success = true;
             result.User = new UserDto
             {
@@ -65,17 +65,23 @@ namespace Trackr.Infrastructure.Services
 
             if (await _userManager.CheckPasswordAsync(user, password))
             {
-                return await Task.FromResult(new ClaimsIdentity(new GenericIdentity(user.UserName, "Token")));
+                return await Task.FromResult(
+                    new ClaimsIdentity(new GenericIdentity(user.UserName, "Token"), new List<Claim>
+                        {
+                            new Claim(ClaimTypes.NameIdentifier, user.Id)
+                        }));
             }
 
             return await Task.FromResult<ClaimsIdentity>(null);
         }
 
-        private JwtSecurityToken GenerateToken(string userName, ClaimsIdentity identity)
+        private JwtSecurityToken GenerateToken(ClaimsIdentity identity)
         {
+            string nm = identity.FindFirst(ClaimTypes.NameIdentifier).Value;
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, userName),
+                new Claim(JwtRegisteredClaimNames.Sub, identity.FindFirst(ClaimTypes.NameIdentifier).Value),
+                identity.FindFirst(ClaimTypes.Name),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
