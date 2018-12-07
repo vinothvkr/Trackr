@@ -12,7 +12,7 @@ namespace Trackr.Web.Controllers
 {
     [Route("api/auth/login")]
     [ApiController]
-    public class LoginController : Controller
+    public class LoginController : ControllerBase
     {
         private readonly IIdentityService _identityService;
 
@@ -28,7 +28,7 @@ namespace Trackr.Web.Controllers
             var result = await _identityService.Login(dto);
             if (result.Success)
             {
-                return Json(result.User);
+                return Ok(result.User);
             }
             result.Error.Status = 400;
             return BadRequest(result.Error);

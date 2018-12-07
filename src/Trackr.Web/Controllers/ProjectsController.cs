@@ -11,7 +11,7 @@ namespace Trackr.Web.Controllers
 {
     [Route("api/projects")]
     [ApiController]
-    public class ProjectsController : Controller
+    public class ProjectsController : ControllerBase
     {
         private readonly IProjectService _projectService;
 
@@ -23,16 +23,16 @@ namespace Trackr.Web.Controllers
 
         // GET: api/Projects
         [HttpGet]
-        public JsonResult Get()
+        public IActionResult Get()
         {
-            return Json(_projectService.GetAll());
+            return Ok(_projectService.GetAll());
         }
 
         // GET: api/Projects/5
         [HttpGet("{id}", Name = "GetProject")]
-        public JsonResult Get(int id)
+        public IActionResult Get(int id)
         {
-            return Json(_projectService.Get(id));
+            return Ok(_projectService.Get(id));
         }
 
         // POST: api/Projects
