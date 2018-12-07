@@ -1,5 +1,7 @@
 export class Issue {
   id: number;
   title: string;
-  body: string;
+  description: string;
+  issueTypeId: string;
+  projectId: number;
 }

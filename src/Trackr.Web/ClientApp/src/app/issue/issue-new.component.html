@@ -1,0 +1,30 @@
+<mat-card class="new-issue-form-card">
+  <mat-card-title><span>New Issue</span></mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="issueForm" (ngSubmit)="onSubmit()" class="issue-form">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="title" placeholder="Title" />
+        <mat-error *ngIf="f.title.invalid">Title is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea matInput formControlName="description" placeholder="Description"></textarea>
+        <mat-error *ngIf="f.description.invalid">Description is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Type" formControlName="type">
+          <mat-option *ngFor="let type of issueTypes" [value]="type.id">
+            {{type.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="f.type.invalid">Description is required.</mat-error>
+      </mat-form-field>
+      <div class="issue-form-button">
+        <button type="submit" mat-raised-button color="primary" class="mat-progress-button"
+                [disabled]="isSubmitted && isLoading">
+          <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+          Submit
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

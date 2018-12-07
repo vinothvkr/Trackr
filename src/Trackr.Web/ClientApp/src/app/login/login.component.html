@@ -4,19 +4,20 @@
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="full-width">
-        <input matInput formControlName="email" placeholder="Email">
+        <input matInput formControlName="email" placeholder="Email" />
         <mat-error *ngIf="f.email.invalid">Email is required.</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput formControlName="password" type="password" placeholder="Password">
+        <input matInput formControlName="password" type="password" placeholder="Password" />
         <mat-error *ngIf="f.password.invalid">Email is required.</mat-error>
       </mat-form-field>
       <div class="login-action">
         <div class="login-forgot-password">
-          <button mat-button color="primary">Forgot password?</button>
+          <button type="button" mat-button color="primary">Forgot password?</button>
         </div>
         <div class="login-submit-button">
-          <button mat-raised-button color="primary" class="mat-progress-button" [disabled]="isSubmitted && isLoading">
+          <button mat-raised-button color="primary" class="mat-progress-button" type="submit"
+                  [disabled]="isSubmitted && isLoading">
             <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
             Login
           </button>

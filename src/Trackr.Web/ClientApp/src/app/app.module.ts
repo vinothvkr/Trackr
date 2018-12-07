@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './core/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './core/helpers/error.interceptor';
 import { HomeComponent } from './home/home.component';
+import { IssueNewComponent } from './issue/issue-new.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     IssueComponent,
     IssueDetailComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    IssueNewComponent
   ],
   imports: [
     BrowserModule,
