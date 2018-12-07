@@ -12,8 +12,10 @@ namespace Trackr.Infrastructure.Models
         public DateTime CreatedOnUTC { get; set; }
         public string CreatedBy { get; set; }
         public int ProjectId { get; set; }
+        public string IssueTypeId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
         public virtual Project Project { get; set; }
+        public virtual IssueType IssueType { get; set; }
     }
 }
