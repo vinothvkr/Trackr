@@ -24,13 +24,5 @@ namespace Trackr.Web.Controllers
         {
             return Ok(_issueTypeService.GetAll());
         }
-
-        // GET: api/IssueTypes/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
     }
 }

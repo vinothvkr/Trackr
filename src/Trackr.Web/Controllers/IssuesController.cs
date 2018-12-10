@@ -21,21 +21,21 @@ namespace Trackr.Web.Controllers
         {
             _issueService = issueService;
         }
-        // GET: api/Issues
+        // GET: api/projects/{projectId}/Issues
         [HttpGet]
         public IActionResult Get(int projectId)
         {
             return Ok(_issueService.GetAll(projectId));
         }
 
-        // GET: api/Issues/5
+        // GET: api/projects/2/Issues/5
         [HttpGet("{id}", Name = "GetIssue")]
         public IActionResult Get(int projectId, int id)
         {
             return Ok(_issueService.Get(id));
         }
 
-        // POST: api/Issues
+        // POST: api/projects/{projectId}/Issues
         [HttpPost]
         public IActionResult Post([FromBody] IssueDto dto)
         {
@@ -45,15 +45,9 @@ namespace Trackr.Web.Controllers
             });
         }
 
-        // PUT: api/Issues/5
+        // PUT: api/projects/{projectId}/Issues/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
         {
         }
     }
