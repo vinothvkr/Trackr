@@ -17,5 +17,6 @@ namespace Trackr.Infrastructure.Models
         public virtual ApplicationUser User { get; set; }
         public virtual Project Project { get; set; }
         public virtual IssueType IssueType { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

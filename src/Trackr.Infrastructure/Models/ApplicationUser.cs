@@ -11,6 +11,7 @@ namespace Trackr.Infrastructure.Models
         public string LastName { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
         public virtual ICollection<Issue> Issues { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
         public string FullName { get { return FirstName + " " + LastName; } }
     }

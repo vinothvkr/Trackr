@@ -18,6 +18,7 @@ namespace Trackr.Infrastructure.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<Issue> Issues { get; set; }
         public DbSet<IssueType> IssueTypes { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,6 +27,7 @@ namespace Trackr.Infrastructure.Data
             builder.ApplyConfiguration(new ProjectConfiguration());
             builder.ApplyConfiguration(new IssueConfiguration());
             builder.ApplyConfiguration(new IssueTypeConfiguration());
+            builder.ApplyConfiguration(new CommentConfiguration());
         }
     }
 }
