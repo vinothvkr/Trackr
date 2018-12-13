@@ -17,7 +17,7 @@ namespace Trackr.Infrastructure.EntityConfigurations
 
             builder.HasOne(x => x.User)
                 .WithMany(x => x.Comments)
-                .HasForeignKey(x => x.UserId);
+                .HasForeignKey(x => x.CreatedBy);
         }
     }
 }
