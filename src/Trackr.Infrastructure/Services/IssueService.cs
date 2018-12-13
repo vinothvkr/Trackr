@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,35 @@ namespace Trackr.Infrastructure.Services
         public IEnumerable<Issue> GetAll(int projectId)
         {
             return _dbContext.Issues.Where(m => m.ProjectId == projectId).ToList();
+        }
+
+        public IssueResultDto Get(int projectId, int id)
+        {
+            Issue i = _dbContext.Issues.Where(m => m.ProjectId == projectId)
+                .Where(m => m.Id == id)
+                .Include(m => m.IssueType)
+                .Include(m => m.Project)
+                .Include(m => m.User)
+                .FirstOrDefault();
+
+            return new IssueResultDto
+            {
+                Id = i.Id,
+                Title = i.Title,
+                CreatedOnUTC = i.CreatedOnUTC,
+                Description = i.Description,
+                IssueType = i.IssueType.Name,
+                Project = new ProjectDto
+                {
+                    Id = i.Project.Id,
+                    Name = i.Project.Name
+                },
+                User = new UserDto
+                {
+                    Id = i.User.Id,
+                    Fullname = i.User.FullName
+                }
+            };
         }
 
         public int Create(IssueDto dto)

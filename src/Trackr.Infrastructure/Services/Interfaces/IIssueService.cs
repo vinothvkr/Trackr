@@ -9,6 +9,7 @@ namespace Trackr.Infrastructure.Services
     public interface IIssueService : IService<Issue>
     {
         IEnumerable<Issue> GetAll(int projectId);
+        IssueResultDto Get(int projectId, int id);
         int Create(IssueDto dto);
     }
 }
