@@ -32,7 +32,7 @@ namespace Trackr.Web.Controllers
         [HttpGet("{id}", Name = "GetIssue")]
         public IActionResult Get(int projectId, int id)
         {
-            return Ok(_issueService.Get(id));
+            return Ok(_issueService.Get(projectId, id));
         }
 
         // POST: api/projects/{projectId}/Issues
