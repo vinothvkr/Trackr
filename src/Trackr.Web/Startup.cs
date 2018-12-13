@@ -33,6 +33,7 @@ namespace Trackr.Web
             services.AddTransient<IIssueService, IssueService>();
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IIssueTypeService, IssueTypeService>();
+            services.AddTransient<ICommentService, CommentService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
