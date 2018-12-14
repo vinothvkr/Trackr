@@ -60,7 +60,7 @@ export class IssueNewComponent implements OnInit {
       issueTypeId: this.f.type.value,
       projectId: projectId
     };
-    this.issueService.postIssue(projectId, this.issue)
+    this.issueService.postIssue(this.issue)
       .subscribe(
       data => {
         this.router.navigate([`/projects/${projectId}/issues/${data.id}`]);

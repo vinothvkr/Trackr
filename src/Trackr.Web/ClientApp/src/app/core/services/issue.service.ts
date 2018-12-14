@@ -29,8 +29,8 @@ export class IssueService {
     return this.http.get<IssueType[]>(url);
   }
 
-  postIssue(projectId: number, issue: Issue): Observable<Issue> {
-    const url = `${this.issuesUrl}/${projectId}/issues`;
+  postIssue(issue: Issue): Observable<Issue> {
+    const url = `${this.issuesUrl}/${issue.projectId}/issues`;
     return this.http.post<Issue>(url, issue);
   }
 }
