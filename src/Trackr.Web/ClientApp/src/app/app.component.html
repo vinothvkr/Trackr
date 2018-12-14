@@ -1,6 +1,11 @@
-<mat-sidenav-container class="sidenav-container" (backdropClick)="closeSideNav()">
-  <mat-sidenav #sidenav class="sidenav" position="end" *ngIf="authService.isAuthenticated"
-               (keydown.escape)="closeSideNav()" disableClose>
+<mat-sidenav-container class="sidenav-container" *ngIf="!authService.isAuthenticated">
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-sidenav-container class="sidenav-container" *ngIf="authService.isAuthenticated" (backdropClick)="closeSideNav()">
+  <mat-sidenav #sidenav class="sidenav" position="end" (keydown.escape)="closeSideNav()" disableClose>
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="closeSideNav()">
         <span> Home </span>
@@ -14,7 +19,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar *ngIf="authService.isAuthenticated" color="primary">
+    <mat-toolbar  color="primary">
       <span class="fill-remaining-space">
         <button mat-icon-button *ngIf="currentUrl != '/'" (click)="goBack()">
           <mat-icon>arrow_back</mat-icon>
@@ -30,4 +35,3 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
