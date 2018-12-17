@@ -48,7 +48,7 @@ namespace Trackr.Infrastructure.Services
             {
                 Id = i.Id,
                 Title = i.Title,
-                CreatedOnUTC = i.CreatedOnUTC,
+                CreatedOnUTC = i.CreatedOn,
                 Description = i.Description,
                 IssueType = i.IssueType.Name,
                 Project = new ProjectDto
@@ -71,7 +71,7 @@ namespace Trackr.Infrastructure.Services
                 Title = dto.Title,
                 Description = dto.Description,
                 CreatedBy = _httpConext.HttpContext.User.GetUserId(),
-                CreatedOnUTC = DateTime.UtcNow,
+                CreatedOn = DateTimeOffset.UtcNow,
                 IssueTypeId = dto.IssueTypeId,
                 ProjectId = dto.ProjectId
             };
