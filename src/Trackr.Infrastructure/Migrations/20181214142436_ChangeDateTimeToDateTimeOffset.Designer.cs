@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trackr.Infrastructure.Data;
 
 namespace Trackr.Infrastructure.Migrations
 {
     [DbContext(typeof(TrackrDbContext))]
-    partial class TrackrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181214142436_ChangeDateTimeToDateTimeOffset")]
+    partial class ChangeDateTimeToDateTimeOffset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,7 +196,7 @@ namespace Trackr.Infrastructure.Migrations
 
                     b.Property<string>("CreatedBy");
 
-                    b.Property<DateTimeOffset>("CreatedOn");
+                    b.Property<DateTimeOffset>("CreatedOnUTC");
 
                     b.Property<int>("IssueId");
 
@@ -215,7 +217,7 @@ namespace Trackr.Infrastructure.Migrations
 
                     b.Property<string>("CreatedBy");
 
-                    b.Property<DateTimeOffset>("CreatedOn");
+                    b.Property<DateTimeOffset>("CreatedOnUTC");
 
                     b.Property<string>("Description");
 
@@ -261,7 +263,7 @@ namespace Trackr.Infrastructure.Migrations
 
                     b.Property<string>("CreatedBy");
 
-                    b.Property<DateTimeOffset>("CreatedOn");
+                    b.Property<DateTimeOffset>("CreatedOnUTC");
 
                     b.Property<string>("Description");
 
