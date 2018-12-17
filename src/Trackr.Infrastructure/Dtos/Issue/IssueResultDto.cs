@@ -9,7 +9,7 @@ namespace Trackr.Infrastructure.Dtos.Issue
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime CreatedOnUTC { get; set; }
+        public DateTimeOffset CreatedOnUTC { get; set; }
         public UserDto User { get; set; }
         public string IssueType { get; set; }
         public ProjectDto Project { get; set; }

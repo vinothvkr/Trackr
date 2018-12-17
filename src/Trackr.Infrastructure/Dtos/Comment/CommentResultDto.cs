@@ -10,6 +10,6 @@ namespace Trackr.Infrastructure.Dtos.Comment
         public string Content { get; set; }
         public int IssueId { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedOnUTC { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
     }
 }

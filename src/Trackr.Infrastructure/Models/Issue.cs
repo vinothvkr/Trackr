@@ -9,7 +9,7 @@ namespace Trackr.Infrastructure.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime CreatedOnUTC { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
         public string CreatedBy { get; set; }
         public int ProjectId { get; set; }
         public string IssueTypeId { get; set; }
