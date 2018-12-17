@@ -21,9 +21,9 @@ namespace Trackr.Web.Controllers
         }
         // GET: api/Comments
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get(int projectId, int issueId)
         {
-            return new string[] { "value1", "value2" };
+            return Ok(_commentService.GetAll(projectId, issueId));
         }
 
         // GET: api/Comments/5
@@ -35,9 +35,10 @@ namespace Trackr.Web.Controllers
 
         // POST: api/Comments
         [HttpPost]
-        public IActionResult Post(int issueId, [FromBody] CommentDto comment)
+        public IActionResult Post(int projectId, int issueId, [FromBody] CommentDto comment)
         {
             comment.IssueId = issueId;
+            comment.ProjectId = projectId;
             return Ok(_commentService.Create(comment));
         }
 
