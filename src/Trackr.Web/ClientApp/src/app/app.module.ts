@@ -7,6 +7,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/modules/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MomentModule } from 'ngx-moment';
 
 import { ProjectsComponent } from './project/project.component';
 import { ProjectDetailComponent } from './project/project-detail.component';
@@ -41,7 +42,8 @@ import { CommentComponent } from './comment/comment.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MomentModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
