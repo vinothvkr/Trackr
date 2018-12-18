@@ -10,7 +10,7 @@
 </mat-card>
 <app-issue *ngIf="project" [projectId]="project.id"></app-issue>
 <div class="fab-speed-dial" *ngIf="project">
-  <button mat-fab color="primary" routerLink="/projects/{{project.id}}/issues/new">
+  <button mat-fab color="accent" routerLink="/projects/{{project.id}}/issues/new">
     <mat-icon>add</mat-icon>
   </button>
 </div>
