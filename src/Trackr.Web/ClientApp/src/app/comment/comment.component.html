@@ -5,7 +5,9 @@
     </div>
     <mat-card-title>
       Vinoth
-      <span class="comment-meta-date">{{comment.createdOn | date:'dd-MM-yyyy hh:mm:ss a Z'}}</span>
+      <time class="comment-meta" title="{{comment.createdOn | date:'MMM dd, yyyy hh:mm a zzzz'}}">
+        {{comment.createdOn | amTimeAgo}}
+      </time>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
