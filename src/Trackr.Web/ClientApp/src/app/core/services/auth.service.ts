@@ -3,44 +3,57 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import * as jwt_decode from 'jwt-decode';
+
+export const TOKEN_NAME: string = 'token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
 
-  constructor(private http: HttpClient) {
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('identity')));
-    this.user = this.userSubject.asObservable();
+  constructor(private http: HttpClient) {}
+
+  getToken(): string {
+    return localStorage.getItem(TOKEN_NAME);
   }
 
-  public get userValue(): User {
-    return this.userSubject.value;
+  setToken(token: string): void {
+    localStorage.setItem(TOKEN_NAME, token);
+  }
+
+  getTokenExpirationDate(token: string): Date {
+    const decoded = jwt_decode(token);
+    console.log(decoded);
+    if (decoded.exp === undefined) return null;
+
+    const date = new Date(0);
+    date.setUTCSeconds(decoded.exp);
+    console.log(date);
+    return date;
   }
 
   public get isAuthenticated(): boolean {
-    if (this.userSubject.value) {
-      return true;
+    const token = this.getToken();
+    if (token) {
+      const tokenDate = this.getTokenExpirationDate(token);
+      if (tokenDate === undefined) return false;
+      return (tokenDate.valueOf() > new Date().valueOf());
     }
     return false;
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string): Observable<any>{
     const url = 'api/auth/login';
     return this.http.post<any>(url, { email, password })
-      .pipe(map(user => {
-        if (user && user.token) {
-          localStorage.setItem('identity', JSON.stringify(user));
-          this.userSubject.next(user);
+      .pipe(map(resp => {
+        if (resp.token) {
+          this.setToken(resp.token);
         }
-        return user;
       }));
   }
 
   logout() {
-    localStorage.removeItem('identity');
-    this.userSubject.next(null);
+    localStorage.removeItem(TOKEN_NAME);
   }
 }
