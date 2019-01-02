@@ -10,7 +10,7 @@ namespace Trackr.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IssueTypesController : ControllerBase
+    public class IssueTypesController : BaseController
     {
         private readonly IIssueTypeService _issueTypeService;
 

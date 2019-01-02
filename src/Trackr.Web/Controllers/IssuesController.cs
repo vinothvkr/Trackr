@@ -13,7 +13,7 @@ namespace Trackr.Web.Controllers
 {
     [Route("api/projects/{projectId}/issues")]
     [ApiController]
-    public class IssuesController : ControllerBase
+    public class IssuesController : BaseController
     {
         private readonly IIssueService _issueService;
 

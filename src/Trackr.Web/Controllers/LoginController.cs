@@ -12,7 +12,7 @@ namespace Trackr.Web.Controllers
 {
     [Route("api/auth/login")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class LoginController : BaseController
     {
         private readonly IIdentityService _identityService;
 

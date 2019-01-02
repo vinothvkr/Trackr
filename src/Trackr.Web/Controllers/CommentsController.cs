@@ -11,7 +11,7 @@ namespace Trackr.Web.Controllers
 {
     [Route("api/projects/{projectId}/issues/{issueId}/comments")]
     [ApiController]
-    public class CommentsController : ControllerBase
+    public class CommentsController : BaseController
     {
         private readonly ICommentService _commentService;
 
