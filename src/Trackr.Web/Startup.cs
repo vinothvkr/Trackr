@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using Trackr.Infrastructure;
-using Trackr.Infrastructure.Data;
-using Trackr.Infrastructure.Services;
 
 namespace Trackr.Web
 {
@@ -28,19 +24,7 @@ namespace Trackr.Web
         public void ConfigureServices(IServiceCollection services)
         {
             TrackrServiceFactory.ServiceConfigurations(services);
-
-            services.AddTransient<IProjectService, ProjectService>();
-            services.AddTransient<IIssueService, IssueService>();
-            services.AddTransient<IIdentityService, IdentityService>();
-            services.AddTransient<IIssueTypeService, IssueTypeService>();
-            services.AddTransient<ICommentService, CommentService>();
-
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddMvc(o =>
-            {
-                o.Filters.Add(new AuthorizeFilter());
-            })
+            services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(o => o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
@@ -62,6 +46,8 @@ namespace Trackr.Web
             {
                 app.UseExceptionHandler("/Error");
             }
+
+            app.UseIdentityServer();
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
