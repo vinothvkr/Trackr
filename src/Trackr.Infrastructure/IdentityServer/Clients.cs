@@ -20,7 +20,7 @@ namespace Trackr.Infrastructure.IdentityServer
                     {
                         new Secret("ClientSecret".Sha256())
                     },
-                    AllowedScopes = new List<string> {"TrackrAPI.read"},
+                    AllowedScopes = new List<string> {"TrackrAPI"},
                     AccessTokenLifetime = 60
                 }
             };

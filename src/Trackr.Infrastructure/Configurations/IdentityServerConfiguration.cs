@@ -13,6 +13,7 @@ namespace Trackr.Infrastructure.Configurations
         {
             services.AddIdentityServer()
             .AddInMemoryClients(Clients.Get())
+            .AddInMemoryIdentityResources(Resources.GetIdentityResources())
             .AddInMemoryApiResources(Resources.GetApiResources())
             .AddTestUsers(Users.Get())
             .AddDeveloperSigningCredential();
