@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trackr.Web", "src\Trackr.We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trackr.Infrastructure", "src\Trackr.Infrastructure\Trackr.Infrastructure.csproj", "{0FA1C464-D2C1-42B7-A410-DE42233C7106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackr.IS4Host", "Trackr.IS4Host\Trackr.IS4Host.csproj", "{07881FFA-2D2F-4617-9892-ACFE70F4895B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackr.IS4Host", "src\Trackr.IS4Host\Trackr.IS4Host.csproj", "{07881FFA-2D2F-4617-9892-ACFE70F4895B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
