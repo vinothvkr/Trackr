@@ -47,8 +47,6 @@ namespace Trackr.Web
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseIdentityServer();
-
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseAuthentication();
