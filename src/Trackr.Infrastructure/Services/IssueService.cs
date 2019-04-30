@@ -16,17 +16,14 @@ namespace Trackr.Infrastructure.Services
     public class IssueService : Service<Issue>, IIssueService
     {
         private readonly TrackrDbContext _dbContext;
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpConext;
 
         public IssueService(
             TrackrDbContext dbContext,
-            UserManager<ApplicationUser> userManager,
             IHttpContextAccessor httpContext
             ) : base(dbContext)
         {
             _dbContext = dbContext;
-            _userManager = userManager;
             _httpConext = httpContext;
         }
 

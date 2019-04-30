@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/user.model';
-import { HttpClient } from '@angular/common/http';
-import * as jwt_decode from 'jwt-decode';
+import { UserManager, UserManagerSettings, User, WebStorageStateStore } from 'oidc-client';
 
 export const TOKEN_NAME: string = 'token';
 
@@ -12,48 +8,52 @@ export const TOKEN_NAME: string = 'token';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  private manager = new UserManager(getClientSettings());
+  private user: User = null;
 
-  getToken(): string {
-    return localStorage.getItem(TOKEN_NAME);
-  }
-
-  setToken(token: string): void {
-    localStorage.setItem(TOKEN_NAME, token);
-  }
-
-  getTokenExpirationDate(token: string): Date {
-    const decoded = jwt_decode(token);
-    console.log(decoded);
-    if (decoded.exp === undefined) return null;
-
-    const date = new Date(0);
-    date.setUTCSeconds(decoded.exp);
-    console.log(date);
-    return date;
+  constructor() {
+    this.manager.getUser().then(user => {
+      this.user = user;
+    })
   }
 
   public get isAuthenticated(): boolean {
-    const token = this.getToken();
-    if (token) {
-      const tokenDate = this.getTokenExpirationDate(token);
-      if (tokenDate === undefined) return false;
-      return (tokenDate.valueOf() > new Date().valueOf());
-    }
-    return false;
+    return this.user != null && !this.user.expired;
   }
 
-  login(email: string, password: string): Observable<any>{
-    const url = 'api/auth/login';
-    return this.http.post<any>(url, { email, password })
-      .pipe(map(resp => {
-        if (resp.token) {
-          this.setToken(resp.token);
-        }
-      }));
+  getCliams(): any {
+    return this.user.profile;
+  }
+
+  getAuthorizationHeaderValue(): string {
+    return `${this.user.token_type} ${this.user.access_token}`;
+  }
+
+  startAuthentication(): Promise<void> {
+    return this.manager.signinRedirect();
+  }
+
+  completeAuthentication(): Promise<void> {
+    return this.manager.signinRedirectCallback().then(user => {
+      this.user = user;
+    });
   }
 
   logout() {
     localStorage.removeItem(TOKEN_NAME);
+  }
+}
+
+export function getClientSettings(): UserManagerSettings {
+  return {
+    authority: 'https://localhost:51864/',
+    client_id: 'TrackrWebClient',
+    redirect_uri: 'http://localhost:51865/auth-callback',
+    post_logout_redirect_uri: 'http://localhost:51865/',
+    response_type: "code",
+    scope: "openid profile TrackrAPI",
+    filterProtocolClaims: true,
+    loadUserInfo: true,
+    userStore: new WebStorageStateStore({ store: window.localStorage })
   }
 }
