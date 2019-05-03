@@ -1,0 +1,12 @@
+<mat-card *ngIf="issue">
+  <mat-card-title>{{issue.title}}</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        {{issue.description}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+<app-comment></app-comment>
+<app-comment-new></app-comment-new>

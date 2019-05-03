@@ -1,0 +1,16 @@
+<mat-card *ngIf="project">
+  <mat-card-title>{{project.name}} - Project</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        Description
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+<app-issue *ngIf="project" [projectId]="project.id"></app-issue>
+<div class="fab-speed-dial" *ngIf="project">
+  <button mat-fab color="accent" routerLink="/projects/{{project.id}}/issues/new">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,23 @@
+mat-card {
+  max-width: 80%;
+  margin: 4em auto;
+  text-align: center;
+  padding: 32px;
+}
+.full-width {
+  width: 100%;
+}
+.issue-form {
+  text-align: left;
+}
+.issue-form-button {
+  margin-top: 16px;
+}
+.mat-progress-button {
+  padding: 0;
+}
+.mat-progress-button mat-progress-bar {
+  position: absolute;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}

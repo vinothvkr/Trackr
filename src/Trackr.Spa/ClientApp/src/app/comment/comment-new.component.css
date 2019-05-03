@@ -1,0 +1,11 @@
+mat-card {
+  max-width: 80%;
+  margin: 4em auto;
+  padding: 32px;
+}
+.full-width {
+  width: 100%;
+}
+.comment-form-button {
+  margin-top: 16px;
+}
