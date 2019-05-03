@@ -20,7 +20,12 @@ namespace Trackr.IS4Host.Config
                     ClientId = "TrackrWebClient",
                     ClientName = "Trackr web client",
                     //AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                    AllowedGrantTypes = GrantTypes.Code,
+                    //AllowedGrantTypes = GrantTypes.Code,
+                    AllowedGrantTypes =
+                    {
+                        GrantType.AuthorizationCode,
+                        GrantType.ResourceOwnerPassword
+                    },
                     RequirePkce = true,
                     RequireClientSecret = false,
                     ClientSecrets = new List<Secret>
@@ -29,9 +34,9 @@ namespace Trackr.IS4Host.Config
                     },
                     AllowedScopes = new List<string> {"openid", "profile", "TrackrAPI"},
                     AccessTokenLifetime = 60,
-                    RedirectUris = new List<string> { "http://localhost:51865/auth-callback" },
-                    PostLogoutRedirectUris = new List<string> { "http://localhost:51865" },
-                    AllowedCorsOrigins = new List<string> { "http://localhost:51865" },
+                    RedirectUris = new List<string> { "https://localhost:51866/auth-callback" },
+                    PostLogoutRedirectUris = new List<string> { "https://localhost:51866" },
+                    AllowedCorsOrigins = new List<string> { "https://localhost:51866" },
                     AllowAccessTokensViaBrowser = true
                 }
             };
