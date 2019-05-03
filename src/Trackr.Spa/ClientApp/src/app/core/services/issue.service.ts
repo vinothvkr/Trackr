@@ -3,12 +3,14 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Issue } from '../models/issue.model';
 import { IssueType } from '../models/issue-type.model';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class IssueService {
-  private issuesUrl = 'api/projects';
+  private issuesUrl = environment.apiUrl + '/projects';
 
   constructor(
     private http: HttpClient
@@ -25,7 +27,7 @@ export class IssueService {
   }
 
   getIssueTypes(): Observable<IssueType[]> {
-    const url = 'api/issuetypes';
+    const url = environment.apiUrl + '/issuetypes';
     return this.http.get<IssueType[]>(url);
   }
 

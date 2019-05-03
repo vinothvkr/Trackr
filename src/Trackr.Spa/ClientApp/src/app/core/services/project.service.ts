@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 import { Project } from '../models/project.model';
 
@@ -8,7 +9,7 @@ import { Project } from '../models/project.model';
   providedIn: 'root'
 })
 export class ProjectService {
-  private projectsUrl = 'api/projects';
+  private projectsUrl = environment.apiUrl + '/projects';
 
   constructor(
     private http: HttpClient
