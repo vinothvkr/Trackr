@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Trackr.Infrastructure.Dtos.Identity
 {
-    public class LoginDto
+    public class SignupDto
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }
