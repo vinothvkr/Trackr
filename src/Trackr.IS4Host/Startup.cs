@@ -35,16 +35,20 @@ namespace Trackr.IS4Host
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
-            .AddOperationalStore(o =>
-                o.ConfigureDbContext = builder =>
-                    builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationAssembly)))
-            .AddConfigurationStore(o =>
-                o.ConfigureDbContext = builder =>
-                    builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationAssembly)))
-            //.AddInMemoryClients(Clients.Get())
-            //.AddInMemoryIdentityResources(Resources.GetIdentityResources())
-            //.AddInMemoryApiResources(Resources.GetApiResources())
+
+            //.AddOperationalStore(o =>
+            //    o.ConfigureDbContext = builder =>
+            //        builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationAssembly)))
+            //.AddConfigurationStore(o =>
+            //    o.ConfigureDbContext = builder =>
+            //        builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationAssembly)))
+
+            .AddInMemoryClients(Clients.Get())
+            .AddInMemoryIdentityResources(Resources.GetIdentityResources())
+            .AddInMemoryApiResources(Resources.GetApiResources())
+
             //.AddTestUsers(Users.Get())
+
             .AddAspNetIdentity<IdentityUser>()
             .AddDeveloperSigningCredential();
 
