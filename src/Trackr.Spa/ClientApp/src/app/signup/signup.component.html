@@ -1,0 +1,34 @@
+<mat-card class="signup-card">
+  <mat-card-title><span class="trackr-logo"><mat-icon color="primary" class="trackr-logo-icon">track_changes</mat-icon> Trackr</span></mat-card-title>
+  <mat-card-subtitle>Sign up</mat-card-subtitle>
+  <mat-card-content>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="email" placeholder="Email" />
+        <mat-error *ngIf="f.email.invalid">Email is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="password" type="password" placeholder="Password" />
+        <mat-error *ngIf="f.password.invalid">Password is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput formControlName="confirmPassword" type="password" placeholder="Password" />
+        <mat-error *ngIf="f.password.invalid">Confirm Password is required.</mat-error>
+      </mat-form-field>
+      <div class="signup-action">
+        <div class="signup-submit-button">
+          <button mat-raised-button color="primary" class="mat-progress-button" type="submit"
+                  [disabled]="isSubmitted && isLoading">
+            <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+            Sign up
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="login-button">
+      Already have an account? <button type="button" mat-button color="primary">Log in</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

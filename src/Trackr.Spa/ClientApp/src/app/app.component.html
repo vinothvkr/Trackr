@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container" (backdropClick)="closeSideNav()">
   <mat-sidenav #sidenav class="sidenav" position="end" (keydown.escape)="closeSideNav()" disableClose>
-    <mat-nav-list>
+    <mat-nav-list *ngIf="authService.isAuthenticated">
       <a mat-list-item routerLink="/" (click)="closeSideNav()">
         <span> Home </span>
       </a>
@@ -9,6 +9,11 @@
       </a>
       <a mat-list-item (click)="logout()">
         <span> Logout </span>
+      </a>
+    </mat-nav-list>
+    <mat-nav-list *ngIf="!authService.isAuthenticated">
+      <a mat-list-item routerLink="signup" (click)="closeSideNav()">
+        <span> Signup </span>
       </a>
     </mat-nav-list>
   </mat-sidenav>

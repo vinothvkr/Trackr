@@ -8,9 +8,11 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { IssueNewComponent } from './issue/issue-new.component';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'auth-callback', component: AuthCallbackComponent },
   { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard] },
   { path: 'projects/:id', component: ProjectDetailComponent, canActivate: [AuthGuard] },

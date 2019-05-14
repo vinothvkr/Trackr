@@ -22,6 +22,7 @@ import { CommentComponent } from './comment/comment.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AuthService } from './core/services/auth.service';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
     IssueNewComponent,
     CommentNewComponent,
     CommentComponent,
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
