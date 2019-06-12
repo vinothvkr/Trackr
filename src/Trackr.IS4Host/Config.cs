@@ -33,7 +33,7 @@ namespace Trackr.IS4Host.Config
                         new Secret("ClientSecret".Sha256())
                     },
                     AllowedScopes = new List<string> {"openid", "profile", "TrackrAPI"},
-                    AccessTokenLifetime = 60,
+                    AccessTokenLifetime = 3600,
                     RedirectUris = new List<string> { "https://localhost:51866/auth-callback" },
                     PostLogoutRedirectUris = new List<string> { "https://localhost:51866" },
                     AllowedCorsOrigins = new List<string> { "https://localhost:51866" },
